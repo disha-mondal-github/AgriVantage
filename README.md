@@ -50,7 +50,7 @@ Datasets used in the application can be accessed from:
 
 ## Video Demonstration
 A video demonstration of the AgriVantage application can be found here:
-[Video Demonstration](#)  <!-- Replace with actual video link -->
+[Video Demonstration](https://drive.google.com/file/d/1725CzPKUbX3ugJlSPVCAo_EsDXtE8W3K/view?usp=drivesdk)
 
 ## Installation
 To run the application locally, clone the repository and install the required dependencies:
