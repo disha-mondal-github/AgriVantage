@@ -14,6 +14,11 @@
 - [Contributing](#contributing)
 - [License](#license)
 
+  
+
+- [WATCH THE DEMO VIDEO](https://drive.google.com/file/d/1725CzPKUbX3ugJlSPVCAo_EsDXtE8W3K/view?usp=drivesdk)
+
+
 ## Overview
 AgriVantage transforms complex satellite data into actionable insights, enabling farmers to make informed decisions that improve productivity and resource management.
 
