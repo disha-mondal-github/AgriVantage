@@ -1,0 +1,291 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 1.5s ease-in-out;
+    border: 2px solid limegreen;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+p {
+    color: #fff;
+    text-align: left;
+}
+
+ul {
+    text-align: left;
+}
+
+.container {
+    z-index: 2;
+    position: relative;
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+/* Logo Styling */
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* AgriVantage Title */
+.site-title {
+    color: limegreen;
+    font-size: 28px;
+    animation: slideInLeft 1.5s ease-in-out;
+}
+
+/* Navigation Bar Custom Styling */
+.navbar-custom {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    animation: slideInUp 1s forwards;
+}
+
+.navbar-nav-custom {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-nav {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid limegreen;
+    color: limegreen;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-nav:hover {
+    background-color: limegreen;
+    color: black;
+}
+
+/* Get Started Button Styling */
+.btn-get-started {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid limegreen;
+    color: limegreen;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-get-started:hover {
+    background-color: limegreen;
+    color: black;
+}
+
+/* Visualization Section Styling */
+.visualization-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.visualization-intro,
+.visualization-select,
+.visualization {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.visualization-intro .intro-text,
+.visualization p,
+#analysisText {
+    text-align: center !important;
+}
+
+.visualization img {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Center the send message button */
+#contact-form .col-12 {
+    display: flex;
+    justify-content: center;
+}
+
+#contact-form input[type="submit"] {
+    width: 150px;
+    margin-top: 10px;
+}
+
+/* Contact Form Styling */
+#contact-form {
+    margin: 20px 0;
+}
+
+#contact-form .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#contact-form .col-6,
+#contact-form .col-12 {
+    padding: 10px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#contact-form input[type="submit"] {
+    background-color: limegreen;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form input[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+#contact-response {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply animations to elements */
+.logo {
+    animation: slideInRight 0.5s forwards;
+}
+
+.resources-content,
+.contact-content {
+    animation: slideInRight 0.5s forwards;
+}
+
+/* Footer that sticks to the bottom */
+.footer {
+    background-color: #111;
+    color: limegreen;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin-top: auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 24px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+}
+
+/* Resources Page Text Colors */
+.resources-content {
+    color: #fff;
+}
+
+.resources-content a {
+    color: limegreen;
+    text-decoration: none;
+}
+
+.resources-content a:hover {
+    text-decoration: underline;
+}

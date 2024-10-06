@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}Visualizations - AgriVantage{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Data Visualizations</h2>
+        <div class="visualization-intro">
+            <p class="intro-text">Explore the latest satellite data on NDVI, changes in vegetation over time, and more.</p>
+        </div>
+
+        <!-- Dropdown for choosing visualization -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <select id="visualizationSelect" onchange="showVisualization()">
+                <option value="" disabled selected>Select a visualization</option>
+                <option value="ndvi_250m">NDVI for 250m Resolution</option>
+                <option value="ndvi_mean_over_time">Mean NDVI Over Time</option>
+                <option value="ndvi_change_over_time">Change in NDVI Over Time</option>
+                <option value="ndvi_change_250m">Mean Change in NDVI Between Two Time Periods</option>
+                <option value="ndvi_histogram_1">NDVI Distribution (First Time Period)</option>
+                <option value="ndvi_histogram_last">NDVI Distribution (Last Time Period)</option>
+            </select>
+        </div>
+
+        <!-- Visualization Section -->
+        <div id="visualizationContainer" class="visualization">
+            <h3 id="visualizationTitle" style="border: none;"></h3>
+            <img id="visualizationImage" src="" alt="" style="display:none; border: none;">
+        </div>
+
+        <!-- Analysis Section -->
+        <div id="analysisContainer" style="margin-top: 20px; display: none;">
+            <h3>Analysis</h3>
+            <p id="analysisText"></p>
+        </div>
+    </section>
+
+    <script>
+        function showVisualization() {
+            const select = document.getElementById('visualizationSelect');
+            const visualizationTitle = document.getElementById('visualizationTitle');
+            const visualizationImage = document.getElementById('visualizationImage');
+            const analysisContainer = document.getElementById('analysisContainer');
+            const analysisText = document.getElementById('analysisText');
+
+            const selectedValue = select.value;
+
+            // Define titles and image sources based on the selected value
+            const visualizations = {
+                ndvi_250m: {
+                    title: 'NDVI for 250m Resolution',
+                    imgSrc: '{{ url_for("static", filename="images/ndvi_250m.png") }}',
+                    analysis: "NDVI values for 250m resolution show the health of vegetation. Values above 0.6 indicate healthy vegetation, while values below 0.4 may indicate stress."
+                },
+                ndvi_mean_over_time: {
+                    title: 'Mean NDVI Over Time',
+                    imgSrc: '{{ url_for("static", filename="images/ndvi_mean_over_time.png") }}',
+                    analysis: "The mean NDVI over time indicates vegetation health. If the trend shows a downward slope, consider adjusting irrigation practices."
+                },
+                ndvi_change_over_time: {
+                    title: 'Change in NDVI Over Time',
+                    imgSrc: '{{ url_for("static", filename="images/ndvi_change_over_time.png") }}',
+                    analysis: "This graph shows the change in NDVI over time. Significant drops may indicate crop stress, requiring early intervention."
+                },
+                ndvi_change_250m: {
+                    title: 'Mean Change in NDVI Between Two Time Periods',
+                    imgSrc: '{{ url_for("static", filename="images/ndvi_change_250m.png") }}',
+                    analysis: "The mean change in NDVI between the first and last time periods can indicate shifts in crop health."
+                },
+                ndvi_histogram_1: {
+                    title: 'NDVI Distribution (First Time Period)',
+                    imgSrc: '{{ url_for("static", filename="images/ndvi_histogram_1.png") }}',
+                    analysis: "The histogram for the first time period shows the distribution of NDVI values. Peaks may indicate areas of healthy vegetation."
+                },
+                ndvi_histogram_last: {
+                    title: 'NDVI Distribution (Last Time Period)',
+                    imgSrc: '{{ url_for("static", filename="images/ndvi_histogram_last.png") }}',
+                    analysis: "The histogram for the last time period helps compare changes in NDVI distribution. Assess shifts in vegetation health."
+                }
+            };
+
+            // Get the selected visualization details
+            const selectedVisualization = visualizations[selectedValue];
+
+            if (selectedVisualization) {
+                visualizationTitle.textContent = selectedVisualization.title;
+                visualizationImage.src = selectedVisualization.imgSrc;
+                visualizationImage.style.display = 'block'; // Show the image
+                
+                // Add the green outline when a visualization is displayed
+                visualizationTitle.style.border = '2px solid limegreen'; // Add border to title
+                visualizationImage.style.border = '2px solid limegreen'; // Add border to image
+
+                // Populate analysis text
+                analysisText.textContent = selectedVisualization.analysis; // Update analysis text
+                analysisContainer.style.display = 'block'; // Show the analysis section
+            } else {
+                visualizationTitle.textContent = '';
+                visualizationImage.src = '';
+                visualizationImage.style.display = 'none'; // Hide the image
+
+                // Remove the borders
+                visualizationTitle.style.border = 'none'; // Remove the border from title
+                visualizationImage.style.border = 'none'; // Remove the border from image
+
+                // Hide the analysis section
+                analysisContainer.style.display = 'none'; // Hide analysis section
+            }
+        }
+    </script>
+{% endblock %}

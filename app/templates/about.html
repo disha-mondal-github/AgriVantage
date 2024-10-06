@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}About - AgriVantage{% endblock %}
+
+{% block content %}
+    <section style="text-align: center;"> <!-- Centered content -->
+        <h2>About This Project</h2>
+        <p>The AgriVantage project is dedicated to leveraging NASA's Earth observation data to empower farmers and policymakers in California's Central Valley. Our website focuses on providing valuable insights through:</p>
+
+        <ul style="color: #fff;">  <!-- Added inline CSS to make list items white -->
+            <li><strong>Normalized Difference Vegetation Index (NDVI):</strong> Analyze NDVI data to assess vegetation health, monitor changes over time, and understand the overall health of crops. Our visualizations provide a clear picture of how vegetation responds to varying environmental conditions.</li>
+            <li><strong>Agriculture and Water Management Pathfinder:</strong> Drought, vegetation health, and soil moisture all can be tracked remotely. This data pathfinder provides links to NASA Earth observations that help address issues including water management for irrigation, crop-type identification and land use, and drought preparedness.</li>
+            <li><strong>Floods Data Pathfinder:</strong> Floods are one of the most costly natural disasters. NASA provides many datasets and tools that can aid with decisions regarding flood response and mitigation.</li>
+            <li><strong>Extreme Heat Data Pathfinder:</strong> Abnormally hot and/or humid weather lasting a few days to weeks at a time is occurring more frequently in locations around the world. These events can have detrimental impacts on farms. NASA data can aid with forecasting and monitoring extreme heat events.</li>
+            <li><strong>NASA Acres:</strong> Established in March 2023, NASA Acres Consortium is NASA’s U.S.-focused agriculture and food security program. NASA Acres focuses on applying satellite EO information to the most pressing agricultural and food security challenges facing U.S. farmers, ranchers, and agrifood system stakeholders.</li>
+            <li><strong>NASA Harvest:</strong> NASA Harvest is a consortium of multidisciplinary and multisectoral actors from around the world, led and implemented by the Harvest Hub at the University of Maryland. This consortium brings together world-renown experts working on environmental, economic, and social aspects of agriculture in universities, research centers, industry, space agencies, humanitarian organizations, ministries of agriculture, and more.</li>
+        </ul>
+
+        <p>While we aimed to include data on soil moisture and evapotranspiration, these datasets could not be generated at this time. However, we are committed to enhancing our platform and will integrate these insights in the future to provide a more comprehensive view of agricultural health.</p>
+
+        <h3>Our Team</h3>
+        <p>We are a dedicated group of machine learning enthusiasts and environmental researchers committed to applying data science and technology to address real-world challenges in agriculture. Our goal is to bridge the gap between complex satellite data and practical applications for farmers and stakeholders in the agricultural sector.</p>
+
+        <h3>How to Use This Tool</h3>
+        <p>Explore our visualizations to gain insights into:</p>
+        <ul style="color: #fff;"> <!-- Ensure this list is also white -->
+            <li>Current NDVI trends that reflect the health of vegetation over time.</li>
+        </ul>
+
+        <p>We invite you to leverage these insights to enhance agricultural practices, improve water resource management, and contribute to a sustainable future in farming.</p>
+    </section>
+{% endblock %}

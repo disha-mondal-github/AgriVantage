@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}AgriVantage - Home{% endblock %}
+
+{% block content %}
+    <section style="margin-top: 20px;">
+        <h2 style="text-align: center;">Welcome to AgriVantage</h2> <!-- Centered Heading -->
+
+        <div style="display: flex; align-items: flex-start; margin-top: 20px;">
+            <div style="flex: 1; padding-right: 20px;">
+                <p style="text-align: left;">Leveraging NASA's Earth observation data for informed agricultural decision-making. Explore real-time visualizations of soil moisture, evapotranspiration, and crop health in California's Central Valley.</p>
+                
+                <p style="text-align: left;">Our analysis focuses on California's Central Valley, specifically within the coordinates:</p>
+                <p style="text-align: left;"><strong>Coordinates:</strong> Latitude 35.049019 to 39.886521, Longitude -122.420221 to -119.112904</p>
+                <p style="text-align: left;"><strong>Time Period:</strong> March 1, 2023, to November 30, 2023</p>
+
+                <!-- Get Started Button -->
+            <div style="margin-top: 20px;">
+                <a href="{{ url_for('main.visualizations') }}" class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+
+
+            <!-- Leaflet Map Embed -->
+            <div id="map" style="width: 300px; height: 300px; margin-left: 20px;"></div> <!-- Smaller Map -->
+        </div>
+    </section>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([37.5, -120.5], 5); // Zoomed out by 1 unit
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Define the bounds for California's Central Valley
+        const bounds = [
+            [35.049019, -122.420221],  // Southwest coordinates
+            [39.886521, -119.112904]   // Northeast coordinates
+        ];
+
+        // Draw a rectangle around the Central Valley
+        L.rectangle(bounds, {color: "#ff7800", weight: 1}).addTo(map);
+    </script>
+{% endblock %}
